@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORLD IPTV 1 | Premium Streaming Service</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Inter:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-color: #050914;
+            /* Very dark navy from logo bg */
+            --bg-secondary: #0a1122;
+            --text-color: #ffffff;
+            --text-muted: #9aa4ba;
+            --neon-cyan: #00f3ff;
+            --neon-blue: #2b12eb;
+            --neon-purple: #9d00ff;
+            --neon-pink: #ff007f;
+            --neon-orange: #ff5e00;
+            --neon-yellow: #ffdb3b;
+            --whatsapp-green: #25d366;
+
+            /* Logo Inspired Gradients */
+            --gradient-1: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 33%, var(--neon-pink) 66%, var(--neon-orange) 100%);
+            --gradient-2: linear-gradient(to bottom, var(--neon-yellow), var(--neon-orange));
+            --gradient-3: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+        }
+
+        /* Reset & Basics */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .text-gradient {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-2 {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .arabic {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(157, 0, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp-green);
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--neon-cyan);
+            filter: drop-shadow(0 0 8px var(--neon-cyan));
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(43, 18, 235, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 94, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(157, 0, 255, 0.1) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            perspective: 1000px;
+            transform: rotateX(60deg) scale(2);
+            animation: moveGrid 15s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% {
+                transform: rotateX(60deg) scale(2) translateY(0);
+            }
+
+            100% {
+                transform: rotateX(60deg) scale(2) translateY(50px);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .bilingual-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--bg-color), var(--bg-secondary));
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-1);
+            z-index: -1;
+            border-radius: 22px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card:nth-child(even) .feature-icon {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .promo-banner {
+            background: var(--gradient-2);
+            color: #000;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            box-shadow: 0 0 20px rgba(255, 94, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--bg-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--neon-cyan);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+        }
+
+        .pricing-card.popular .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-1);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.1);
+        }
+
+        .plan-duration {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .plan-price span {
+            font-size: 1.5rem;
+            margin-left: 5px;
+            color: var(--text-muted);
+        }
+
+        .plan-features {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #dcdcdc;
+        }
+
+        .plan-features li i {
+            color: var(--neon-cyan);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(to top, var(--bg-color), var(--bg-secondary));
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testi-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stars {
+            color: var(--neon-yellow);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .testi-text {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background: var(--bg-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--neon-cyan);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 300px;
+            /* arbitrary max height for transition */
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient-1);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .bilingual-box {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="WORLD IPTV 1 Logo" style="height: 45px;">
+                <span style="font-weight: 800; font-size: 1.6rem; letter-spacing: 1px; color: #fff;">World <span class="text-gradient-2">IPTV 1</span></span>
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Accueil / الرئيسية</a></li>
+                    <li><a href="#features">Caractéristiques / المميزات</a></li>
+                    <li><a href="#pricing">Tarifs / الأسعار</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" id="mobile-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Le Meilleur de la TV en <span class="text-gradient">Streaming</span> / <span
+                        class="text-gradient-2 arabic">أفضل بث تلفزيوني</span></h1>
+
+                <div class="bilingual-box">
+                    <p class="subtitle" style="margin-bottom:0; color:#fff;">Profitez de plus de 10,000 chaînes, films
+                        et séries en qualité 4K/FHD. Sans coupure, sans limite.</p>
+                    <p class="subtitle arabic" style="margin-bottom:0; color:#fff; font-size: 1.3rem;">استمتع بأكثر من
+                        10,000 قناة، فيلم ومسلسل بجودة 4K/FHD. بدون تقطيع وبدون حدود.</p>
+                </div>
+
+                <div class="hero-btns">
+                    <a href="https://wa.me/212650899858" class="btn btn-primary" target="_blank">
+                        Commander Maintenant / اطلب الآن
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#pricing" class="btn btn-whatsapp"
+                        style="background: rgba(255,255,255,0.1); color: white; box-shadow:none;">
+                        Voir les tarifs / شاهد الأسعار
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">Pourquoi Nous Choisir ? / <span class="arabic">لماذا تختارنا؟</span></h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <i class="fa-solid fa-server feature-icon"></i>
+                    <h3>Serveurs Stables / <span class="arabic">خوادم مستقرة</span></h3>
+                    <p>Technologie anti-freeze garantie 99.9% d'uptime. / تقنية منع التقطيع مع ضمان تشغيل 99.9٪.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fa-solid fa-tv feature-icon"></i>
+                    <h3>Qualité 4K & HD / <span class="arabic">جودة عالية</span></h3>
+                    <p>Profitez de vos programmes favoris en très haute définition. / استمتع ببرامجك المفضلة بدقة عالية
+                        جداً.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <img src="logo.png" alt="Globe" style="height: 60px; margin-bottom: 20px; display: inline-block;">
+                    <h3>Chaînes Internationales / <span class="arabic">قنوات عالمية</span></h3>
+                    <p>Accès à toutes les chaînes du monde entier. / وصول إلى جميع القنوات من جميع أنحاء العالم.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <i class="fa-solid fa-film feature-icon"></i>
+                    <h3>VOD (Films & Séries) / <span class="arabic">مكتبة أفلام ومسلسلات</span></h3>
+                    <p>Mise à jour quotidienne des derniers films et séries. / تحديث يومي لأحدث الأفلام والمسلسلات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in">Nos Abonnements / <span class="arabic">باقاتنا</span></h2>
+
+            <div class="promo-banner fade-in">
+                <i class="fa-solid fa-gift"></i>
+                BONUS: Application IBO Player GRATUITE pour 1 an avec tout abonnement ! / تطبيق IBO Player مجاناً لمدة
+                سنة مع أي اشتراك!
+            </div>
+
+            <div class="pricing-grid">
+                <!-- 3 Months -->
+                <div class="pricing-card fade-in">
+                    <div class="plan-duration">3 Mois / <span class="arabic">أشهر</span></div>
+                    <div class="plan-price">70<span>DH</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check-circle"></i> +10,000 Chaînes / قنوات</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Films & Séries VOD</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Qualité SD, HD, FHD, 4K</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Support 24/7</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Compatible tous supports</li>
+                    </ul>
+                    <a href="https://wa.me/212650899858?text=Bonjour,%20je%20suis%20intéressé%20par%20l'abonnement%203%20mois%20à%2070%20DH"
+                        class="btn btn-primary" target="_blank" style="width: 100%;">
+                        Commander / اطلب <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- 12 Months -->
+                <div class="pricing-card popular fade-in">
+                    <div class="popular-badge">BEST SELLER / الأفضل مبيعاً</div>
+                    <div class="plan-duration text-gradient">12 Mois / <span class="arabic">شهراً</span></div>
+                    <div class="plan-price">200<span>DH</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check-circle"></i> +10,000 Chaînes / قنوات</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Films & Séries VOD</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Qualité SD, HD, FHD, 4K</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Support 24/7 Premium</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Compatible tous supports</li>
+                        <li style="color: var(--neon-yellow); font-weight: bold;"><i class="fa-solid fa-star"></i> IBO
+                            Player 1 An Gratuit !</li>
+                    </ul>
+                    <a href="https://wa.me/212650899858?text=Bonjour,%20je%20suis%20intéressé%20par%20l'abonnement%2012%20mois%20à%20200%20DH"
+                        class="btn btn-primary" target="_blank" style="width: 100%;">
+                        Commander / اطلب <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- 6 Months -->
+                <div class="pricing-card fade-in">
+                    <div class="plan-duration">6 Mois / <span class="arabic">أشهر</span></div>
+                    <div class="plan-price">100<span>DH</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check-circle"></i> +10,000 Chaînes / قنوات</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Films & Séries VOD</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Qualité SD, HD, FHD, 4K</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Support 24/7</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Compatible tous supports</li>
+                    </ul>
+                    <a href="https://wa.me/212650899858?text=Bonjour,%20je%20suis%20intéressé%20par%20l'abonnement%206%20mois%20à%20100%20DH"
+                        class="btn btn-primary" target="_blank" style="width: 100%;">
+                        Commander / اطلب <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">Avis Clients / <span class="arabic">آراء العملاء</span></h2>
+            <div class="testi-grid">
+                <div class="testi-card fade-in">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">"Excellente qualité d'image, aucune coupure pendant les matchs de foot.
+                        Service client très réactif via WhatsApp. Je recommande fortement !"</p>
+                    <div class="testi-author">
+                        <div class="avatar">K</div>
+                        <div>
+                            <h4>Karim B.</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">Client depuis 1 an</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card fade-in">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text arabic text-right">"خدمة ممتازة جداً، القنوات لا تتقطع والمكتبة السينمائية
+                        متجددة دائماً. تفعيل سريع جداً في أقل من 5 دقائق."</p>
+                    <div class="testi-author" style="flex-direction: row-reverse; text-align: right;">
+                        <div class="avatar">A</div>
+                        <div>
+                            <h4>Ahmed M.</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">مشترك في باقة 12 شهر</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card fade-in">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="testi-text">"Installation super facile sur ma Smart TV avec l'appli IBO Player offerte. Un
+                        grand choix de chaînes françaises et arabes."</p>
+                    <div class="testi-author">
+                        <div class="avatar">S</div>
+                        <div>
+                            <h4>Sarah L.</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">Cliente depuis 3 mois</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title fade-in">Questions Fréquentes / <span class="arabic">أسئلة متكررة</span></h2>
+            <div class="faq-container fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Sur quels appareils ça fonctionne ? / على أي أجهزة يعمل؟
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Notre service IPTV est compatible avec presque tous les appareils : Smart TV (Samsung, LG,
+                            Android TV), Smartphones (iOS/Android), PC/Mac, Box Android, Apple TV, Firestick,
+                            etc.<br><br>
+                            <span class="arabic" style="display:block; text-align:right;">خدمتنا متوافقة مع جميع الأجهزة
+                                تقريباً: التلفزيون الذكي، الهواتف الذكية، أجهزة الكمبيوتر، أجهزة أندرويد بوكس، أبل تي
+                                في، وغيرها.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quelle est la vitesse internet recommandée ? / ما هي سرعة الإنترنت المطلوبة؟
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pour une expérience fluide, nous recommandons une connexion internet d'au moins 12 Mbps. Pour
+                            la qualité 4K, 20 Mbps ou plus est idéal.<br><br>
+                            <span class="arabic" style="display:block; text-align:right;">للحصول على تجربة سلسة، نوصي
+                                باتصال إنترنت لا يقل عن 12 ميجابت في الثانية. لجودة 4K، يُفضل 20 ميجابت أو أكثر.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Comment s'abonner ? / كيف يمكنني الاشتراك؟
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Il vous suffit de nous contacter via WhatsApp. Nous vous enverrons les méthodes de paiement
+                            et procéderons à l'activation de votre compte immédiatement après réception du
+                            paiement.<br><br>
+                            <span class="arabic" style="display:block; text-align:right;">ما عليك سوى التواصل معنا عبر
+                                واتساب. سنرسل لك طرق الدفع ونقوم بتفعيل حسابك فوراً بعد استلام الدفع.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 20px;">
+                        <img src="logo.png" alt="WORLD IPTV 1 Logo" style="height: 45px;">
+                        <span style="font-weight: 800; font-size: 1.6rem; letter-spacing: 1px; color: #fff;">World <span class="text-gradient-2">IPTV 1</span></span>
+                    </a>
+                    <p>Votre fournisseur de services IPTV premium. Qualité, stabilité et support irréprochable.</p>
+                    <p class="arabic text-right">مزود خدمة IPTV المتميز. جودة واستقرار ودعم لا تشوبه شائبة.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 10px;">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#features">Caractéristiques</a></li>
+                        <li><a href="#pricing">Tarifs</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fa-brands fa-whatsapp"></i> +212 650-899858</p>
+                    <p><i class="fa-solid fa-envelope"></i> contact@worldiptv1.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 WORLD IPTV 1. Tous droits réservés. / جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/212650899858" class="whatsapp-float" target="_blank"
+        aria-label="Contactez-nous sur WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            if (navMenu.classList.contains('active')) {
+                mobileBtn.innerHTML = '<i class="fa-solid fa-times"></i>';
+            } else {
+                mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('#nav-menu li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
